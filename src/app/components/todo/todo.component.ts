@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core'; 
 import { Todo } from 'src/app/models/Todos';
+import { TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'app-todo',
@@ -7,8 +8,10 @@ import { Todo } from 'src/app/models/Todos';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  @Input() todo: Todo;
-  constructor() { }
+  @Input() todo: Todo; // We do this so we can use Todo, which are coming from todos.
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
+
+  constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +20,15 @@ export class TodoComponent implements OnInit {
     return {
       "is-complete": this.todo.completed
     }
+  }
+
+  onToggle(todo: Todo): void {
+    this.todoService.toggleCompleted(todo).subscribe(todo => {
+      console.log(todo);
+    })
+  }
+
+  onDelete(todo: Todo): void {
+    this.deleteTodo.emit(todo);
   }
 }
