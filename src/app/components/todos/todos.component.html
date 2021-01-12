@@ -1,10 +1,11 @@
 <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
 
 <app-todo 
-*ngFor="let todo of myTodos"
-[todo]="todo"
-(deleteTodo)="deleteTodo($event)"
-
+    *ngFor="let todo of myTodos"
+    [todo]="todo"
+    (deleteTodo)="deleteTodo($event)"
 >
 
 </app-todo>
+
+<button (click)="goBack()">go back</button>

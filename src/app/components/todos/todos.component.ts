@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from "../../models/Todos";
 import { TodoService } from "../../services/todo.service";
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -10,7 +10,7 @@ import { TodoService } from "../../services/todo.service";
 export class TodosComponent implements OnInit {
   myTodos: Todo[];
 
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService:TodoService, private location:Location) { }
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe(todos => {
@@ -29,5 +29,9 @@ export class TodosComponent implements OnInit {
     this.todoService.addTodo(todo).subscribe(todo => {
       this.myTodos.push(todo);
     })
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
