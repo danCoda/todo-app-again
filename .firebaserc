@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todo-fdf7f": {
+      "hosting": {
+        "todo-app-again": [
+          "todo-fdf7f"
+        ]
+      }
+    }
+  }
+}
