@@ -20,36 +20,37 @@ export class TodoService {
   todosUrl = "https://jsonplaceholder.typicode.com/todos";
   params = "?_limit=5";
 
-  constructor(private http: HttpClient, private firestore:AngularFirestore) {
-    console.log("Hey");
-   this.playWithDB().subscribe(snap => {
-     console.log(snap);
-     console.log(snap.docs[0].data());
-    
-   })
-   //dog.forEach(data => console.log(data.docs.forEach(doc => console.log(doc))));
-  }
+  constructor(private http: HttpClient, private firestore: AngularFirestore) { }
 
-  playWithDB():Observable<any> {
-    return this.firestore.collection("hello").get();
-  }
-
-  getTodos(): Observable<Todo[]> {
+  /* getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.params}`);
+  } */
+  getTodos(): Observable<any> {
+    return this.firestore.collection("todos").get();
   }
 
-  toggleCompleted(todo: Todo): Observable<any> {
+  toggleCompleted(todo: Todo) {
+  /* toggleCompleted(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}`
-    return this.http.put<Todo[]>(url, todo, httpOptions);
+    return this.http.put<Todo[]>(url, todo, httpOptions); */
+    console.log("Hi: ", todo);
+    this.firestore.collection("todos").doc(todo.id).update({
+      "completed": todo.completed
+    });
   }
 
-  deleteTodo(todo: Todo): Observable<Todo> {
+  /* deleteTodo(todo: Todo): Observable<Todo> {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
-
+  } */
+  deleteTodo(todo: Todo): void {
+    this.firestore.collection("todos").doc(todo.id).delete();
   }
 
-  addTodo(todo: Todo): Observable<Todo> {
+  /* addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
+  } */
+  addTodo(todo: Todo) {
+    return this.firestore.collection("todos").add(todo);
   }
 }

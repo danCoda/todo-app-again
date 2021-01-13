@@ -10,6 +10,7 @@ import { TodoService} from "../../services/todo.service";
 export class TodoComponent implements OnInit {
   @Input() todo: Todo; // We do this so we can use Todo, which are coming from todos.
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
+  @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter();
 
   constructor(private todoService:TodoService) { }
 
@@ -22,10 +23,13 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  onToggle(todo: Todo): void {
+  /* onToggle(todo: Todo): void {
     this.todoService.toggleCompleted(todo).subscribe(todo => {
       console.log(todo);
     })
+  } */
+  onToggle(todo: Todo): void {
+    this.toggleTodo.emit(todo);
   }
 
   onDelete(todo: Todo): void {
