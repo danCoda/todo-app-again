@@ -7,7 +7,7 @@
 </div> -->
 
 <td>
-    <input (change)="onToggle(todo)" type="checkbox" class="form-check-input">
+    <input (change)="onToggle(todo)" type="checkbox" class="form-check-input" [checked]="todo.completed">
 </td>
 <td>
     <label [ngClass]="setClasses()" class="form-check-label">{{todo.title}}</label>
