@@ -1,18 +1,17 @@
 <div class="row">
-    <div class="col bg-warning"></div>
-    <div class="col-md-6 bg-success">
-        <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
+  <div class="col bg-warning"></div>
+  <div class="col-md-6 bg-success">
+    <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
 
-        <app-todo 
-            *ngFor="let todo of myTodos"
-            [todo]="todo"
-            (deleteTodo)="deleteTodo($event)"
-            (toggleTodo)="toggleTodo($event)"
-        >
-        </app-todo>
-        
-    </div>
-    <div class="col bg-warning"></div>
+    <table class="table">
+      <tbody>
+        <tr app-todo class="table-light" *ngFor="let todo of myTodos" [todo]="todo" (deleteTodo)="deleteTodo($event)"
+          (toggleTodo)="toggleTodo($event)">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col bg-warning"></div>
 </div>
 
 
