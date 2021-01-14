@@ -1,7 +1,7 @@
-<div [ngClass]="setClasses()">
-    <p>
-        <input (change)="onToggle(todo)" type="checkbox">
-        DO THIS: {{todo.title}}
-        <button (click)="onDelete(todo)">x</button>
-    </p>
+<div >
+    <div class="form-check">
+        <input id="todoItem" (change)="onToggle(todo)" type="checkbox" class="form-check-input">
+        <label [ngClass]="setClasses()" for="todoItem" class="form-check-label">{{todo.title}}</label>
+        <button (click)="onDelete(todo)" type="button" class="btn btn-danger btn-sm">&times;</button>
+    </div>
 </div>

@@ -7,5 +7,9 @@
         ]
       }
     }
+  },
+  "projects": {
+    "staging": "todo-fdf7f",
+    "default": "todo-fdf7f"
   }
 }

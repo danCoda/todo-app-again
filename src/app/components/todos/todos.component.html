@@ -1,12 +1,19 @@
-<app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
+<div class="row">
+    <div class="col bg-warning"></div>
+    <div class="col-md-6 bg-success">
+        <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
 
-<app-todo 
-    *ngFor="let todo of myTodos"
-    [todo]="todo"
-    (deleteTodo)="deleteTodo($event)"
-    (toggleTodo)="toggleTodo($event)"
->
+        <app-todo 
+            *ngFor="let todo of myTodos"
+            [todo]="todo"
+            (deleteTodo)="deleteTodo($event)"
+            (toggleTodo)="toggleTodo($event)"
+        >
+        </app-todo>
+        
+    </div>
+    <div class="col bg-warning"></div>
+</div>
 
-</app-todo>
 
-<button (click)="goBack()">go back</button>
+<button (click)="goBack()" class="btn btn-info" type="button">Back</button>

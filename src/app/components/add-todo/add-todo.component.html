@@ -1,5 +1,9 @@
-<form (ngSubmit)="onSubmit()">
-    <input type="text" name="title" [(ngModel)]="title" placeholder="Add new Todo...">
-    <input type="submit" value="Submit!!">
-    {{title}}
+<form (ngSubmit)="onSubmit()" class="row">
+    <div class="col-sm-8">
+      <input type="text" name="title" [(ngModel)]="title" class="form-control mt-3" placeholder="Add new Todo...">
+    </div>
+    <div class="col-sm-4">
+        <input type="submit" class="btn btn-primary form-control mt-3 mb-3" value="Submit">
+    </div>
 </form>
+
