@@ -15,6 +15,8 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './components/pages/about/about.component';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { environment } from 'src/environments/environment';
     TodosComponent,
     TodoComponent,
     AddTodoComponent,
-    AboutComponent
+    AboutComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

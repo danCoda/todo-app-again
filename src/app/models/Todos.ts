@@ -1,5 +1,6 @@
 export class Todo {
     id: string;
     title: string;
-    completed: boolean
+    completed: boolean;
+    timestamp?: Date
 }

@@ -4,10 +4,10 @@ import { TodosComponent } from "./components/todos/todos.component";
 import { AboutComponent } from "./components/pages/about/about.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: '/About', pathMatch: 'full' },
+  { path: "", redirectTo: '/Todos', pathMatch: 'full' },
   { path: "Todos", component: TodosComponent },
   { path: "About", component: AboutComponent },
-  { path: "**", component: AboutComponent },
+  { path: "**", component: TodosComponent },
 ];
 
 @NgModule({

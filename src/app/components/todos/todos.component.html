@@ -1,18 +1,20 @@
 <div class="row">
-  <div class="col bg-warning"></div>
-  <div class="col-md-6 bg-success">
+  <div class="col"></div>
+  <div class="col-lg-8" id="todosContainer">
     <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
 
-    <table class="table">
+    <table class="table table-hover">
+      <caption>Submitted Todos appear here</caption>
       <tbody>
-        <tr app-todo class="table-light" *ngFor="let todo of myTodos" [todo]="todo" (deleteTodo)="deleteTodo($event)"
+        <tr app-todo class="" *ngFor="let todo of myTodos" [todo]="todo" (deleteTodo)="deleteTodo($event)"
           (toggleTodo)="toggleTodo($event)">
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="col bg-warning"></div>
+  <div class="col"></div>
 </div>
 
 
-<button (click)="goBack()" class="btn btn-info" type="button">Back</button>
+<!-- <button (click)="goBack()" class="btn btn-info" type="button">Back</button>
+ -->

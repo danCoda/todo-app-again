@@ -14,11 +14,13 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe(todos => {
-      this.myTodos = todos.docs.map(d => {
-        let data = d.data();
-        data.id = d.id;
-        return data;
-      });
+      console.log("1", todos);
+      this.myTodos = todos.map(d => {
+        return {
+          id: d.payload.doc.id,
+          ...d.payload.doc.data()
+        }
+      }).sort((a, b) => a.timestamp - b.timestamp);
     });
   }
 
