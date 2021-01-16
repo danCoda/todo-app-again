@@ -8,3 +8,14 @@
 footer {
     height: 3em;
 }
+
+#image {
+    width: 18em;
+    height: 32vh;
+    background-image: url("../assets/bball.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
