@@ -1,0 +1,6 @@
+footer {
+    left: 0; /*Offset the .container's margin. */
+    height: 100px;
+    width: 100%;
+    position: absolute;
+}
