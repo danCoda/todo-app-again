@@ -1,0 +1,21 @@
+<div *ngIf="!(authService.user | async)">
+  <input class="form-control me-2" type="text" placeholder="Email" [(ngModel)]="email">
+  <input class="form-control me-2" type="password" placeholder="Password" [(ngModel)]="password">
+  <input class="form-control me-2" type="test" placeholder="(Optional) Display name" [(ngModel)]="displayName">
+
+  <button class="btn btn-outline-success" (click)="signup()" [disabled]="!email || !password">
+    Signup
+  </button>
+
+  <button class="btn btn-outline-success" (click)="login()" [disabled]="!email || !password">
+    Login
+  </button>
+</div>
+
+<div *ngIf="authService.user | async">
+    <!-- Welcome {{ (authService.user | async)?.email }}! -->
+    Welcome {{displayName}}!
+  <button class="btn btn-outline-success" (click)="logout()">
+    Logout
+  </button>
+</div>
